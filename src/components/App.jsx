@@ -7,12 +7,16 @@ function App() {
     setName(event.target.value);
   }
 
-  function submitName() {
+  function submitName(event) {
     setHeading(name);
+
+    //for forms
+    event.preventDefault; 
   }
 
   return (
     <div className="container">
+      <form onSubmit={submitName}>
       <h1>Hello {headingText}</h1>
       <input
         onChange={handleChange}
@@ -20,7 +24,8 @@ function App() {
         placeholder="What's your name?"
         value={name}
       />
-      <button onClick={submitName}>Submit</button>
+      <button type="submit">Submit</button>
+      </form>
     </div>
   );
 }
